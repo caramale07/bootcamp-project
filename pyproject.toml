@@ -1,0 +1,22 @@
+[project]
+name = "bootcamp-project"
+version = "0.1.0"
+description = "Azercell DataMinds Bootcamp ML Project"
+readme = "README.md"
+requires-python = ">= 3.12"
+authors = [{ name = "caramale07", email = "fatulla2004@gmail.com" }]
+dependencies = [
+    # runtime deps go here, e.g. "pandas>=2.2"
+]
+
+# [tool.ruff]
+# lint.extend-select = ["ALL"]
+
+[tool.black]
+line-length = 100
+extend-exclude = '^(data|reports|models|notebooks)/'
+
+[tool.isort]
+profile = "black" # keeps isort compatible with Black
+line_length = 100
+skip_glob = ["data/**", "reports/**", "models/**", "notebooks/**"]
