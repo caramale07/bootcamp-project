@@ -1,0 +1,27 @@
+name: CI Build Dev
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install uv and set Python (pin or read from your repo)
+      - name: Setup uv (+ Python 3.12)
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      # Lint with Ruff via uvx; show GitHub annotations on PRs
+      - name: Ruff check
+        run: uvx ruff check --output-format=github .
+
+    
