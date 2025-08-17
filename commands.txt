@@ -1,0 +1,11 @@
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+uv tool install ruff@latest
+
+ruff check
+ruff format
+
+isort . --diff
+isort .
+
+black .
