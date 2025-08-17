@@ -1,7 +1,6 @@
 import warnings
 
 import joblib
-import numpy as np
 import optuna
 import pandas as pd
 import xgboost as xgb

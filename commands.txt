@@ -2,10 +2,9 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 uv tool install ruff@latest
 
-ruff check
-ruff format
+uvx ruff check .
+uvx ruff check --fix .
 
-isort . --diff
-isort .
+uvx isort . 
 
-black .
+uvx black .

@@ -144,7 +144,7 @@ def main():
 
     # Print summary
     unique_preds, counts = np.unique(predictions, return_counts=True)
-    print(f"Prediction summary:")
+    print("Prediction summary:")
     for pred, count in zip(unique_preds, counts):
         percentage = (count / len(predictions)) * 100
         label = "Multisim" if pred == 1 else "Not Multisim"
