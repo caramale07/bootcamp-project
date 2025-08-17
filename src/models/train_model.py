@@ -32,7 +32,9 @@ def load_and_prepare_data(data_path="data/multisim_dataset.parquet"):
 
     # Feature engineering
     df["tenure_years"] = df["tenure"] / 365.25
-    df["age_tenure_ratio"] = pd.to_numeric(df["age"], errors="coerce") / (df["tenure_years"] + 1)
+    df["age_tenure_ratio"] = pd.to_numeric(df["age"], errors="coerce") / (
+        df["tenure_years"] + 1
+    )
     df["device_change_frequency"] = df["dev_num"] / (df["tenure_years"] + 1)
 
     # Add new numerical features
@@ -115,7 +117,9 @@ def train_model(X_train, y_train, best_params, preprocessor):
             ("preprocessor", preprocessor),
             (
                 "classifier",
-                xgb.XGBClassifier(**best_params, random_state=42, eval_metric="logloss"),
+                xgb.XGBClassifier(
+                    **best_params, random_state=42, eval_metric="logloss"
+                ),
             ),
         ]
     )

@@ -32,7 +32,9 @@ def prepare_prediction_data(data_path):
 
     # Feature engineering (same as training)
     df["tenure_years"] = df["tenure"] / 365.25
-    df["age_tenure_ratio"] = pd.to_numeric(df["age"], errors="coerce") / (df["tenure_years"] + 1)
+    df["age_tenure_ratio"] = pd.to_numeric(df["age"], errors="coerce") / (
+        df["tenure_years"] + 1
+    )
     df["device_change_frequency"] = df["dev_num"] / (df["tenure_years"] + 1)
 
     # Add new numerical features
@@ -98,7 +100,9 @@ def predict_single_sample(model, sample_data):
 
 def main():
     """Main prediction pipeline"""
-    parser = argparse.ArgumentParser(description="Run predictions using trained multisim model")
+    parser = argparse.ArgumentParser(
+        description="Run predictions using trained multisim model"
+    )
     parser.add_argument(
         "--data",
         type=str,
